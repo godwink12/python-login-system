@@ -13,4 +13,5 @@ A terminal-based authentication system built with Python.
 
 ## Future Improvements
 - Implement password hashing for security.
+- Turn It Into a website
 - Connect to a SQLite database.
