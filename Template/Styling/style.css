@@ -59,3 +59,16 @@ input{
     padding: 5px 10px;
     color: rgba(245, 245, 220, 1.0);
 }
+
+a{
+    text-decoration: none;
+    color: rgba(245, 245, 220, 1.0);
+}
+
+.sign:hover{
+    color: blue;
+    text-decoration: solid;
+}
+button a:hover {
+    color: black;
+}
