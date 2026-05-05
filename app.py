@@ -1,4 +1,5 @@
 import string
+import bcrypt
 
 # Login System 
 
@@ -26,7 +27,8 @@ while True:
     elif not any(char in string.punctuation for char in password):
       print('Needs a symbol')
     else:
-      users[username] = password
+      password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+      users[username] = password_hash
       if len(password) >= 10:
         print('Excellent')
       else:
@@ -35,9 +37,9 @@ while True:
     username = input("Enter a username: ")
     passwordL = input('Enter Password: ')
     # Check User input Exist 
-    if username in users and passwordL == users[username]:
+    if username in users and bcrypt.checkpw(password.encode('utf-8'), users[username]):
       print('Welcome')
-    elif username in users and passwordL != users[username]:
+    elif username in users and not bcrypt.checkpw(password.encode('utf-8'), users[username]) :
       print('Wrong Password')
     else :
       print('USER NOT FOUND!!')
