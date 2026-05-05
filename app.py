@@ -37,7 +37,7 @@ while True:
      # Check User input Exist 
      if username in users and passwordL == users[username]:
         print('Welcome')
-     elif username in users and passwordL != password:
+     elif username in users and passwordL != users[username]:
         print('Wrong Password')
      else :
         print('USER NOT FOUND!!')
