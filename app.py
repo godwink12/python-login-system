@@ -24,8 +24,10 @@ while True:
     # Check Password Lenght
      elif len(password) < 6 : 
         print('Too Short')
-     elif len(password) > 10 :
+     elif len(password) >= 10 :
+        users[username] = password
         print('Execellent')
+
      else :
         users[username] = password
         print('Saved')
