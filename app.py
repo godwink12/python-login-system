@@ -1,11 +1,14 @@
 import string
 import bcrypt
+from database import create_table, save_user, find_user, user_exists
 
 # Login System 
 
 print('Welcome to our  Website Glad to Have You here Login For more More Access!!')
 
-users = {}
+
+
+create_table()
 
 while True:
   user_choice = input("Do you Want to 'register' , 'login' or 'Exit' ")
@@ -16,7 +19,7 @@ while True:
   elif user_choice == 'register':
     username = input("Enter a username: ")
     password = input('Enter Password: ')
-    if username in users:  # Check if user already exists in the dictionary
+    if user_exists(username):  # Check if user already exists in the dictionary
       print('username Already existed')
     elif len(password) < 6:
       print('Too Weak')
@@ -28,7 +31,7 @@ while True:
       print('Needs a symbol')
     else:
       password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-      users[username] = password_hash
+      save_user(username,password_hash)
       if len(password) >= 10:
         print('Excellent')
       else:
@@ -37,9 +40,9 @@ while True:
     username = input("Enter a username: ")
     passwordL = input('Enter Password: ')
     # Check User input Exist 
-    if username in users and bcrypt.checkpw(passwordL.encode('utf-8'), users[username]):
+    if user_exists(username) and bcrypt.checkpw(passwordL.encode('utf-8'), find_user(username)[1]):
       print('Welcome')
-    elif username in users and not bcrypt.checkpw(passwordL.encode('utf-8'), users[username]):
+    elif user_exists(username) and not bcrypt.checkpw(passwordL.encode('utf-8'), find_user(username)):
       print('Wrong Password')
     else :
       print('USER NOT FOUND!!')
