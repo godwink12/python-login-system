@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(20, 20, 20, 1.0);
+}
+
+
+.navbar{
+  list-style-type: none;
+  margin: 10px;
+  padding: 30px;
+  width: 130px;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+  background-color: linear-gradient (135deg, rgba(219, 13, 147, 0.1), rgb(255, 255, 255));
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(245, 245, 220, 1.0) ;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: block;
+}
+
+h1{
+   font-size: 20px;
+   font-family: 'Clash Grotesk', sans-serif;
+   color: rgba(245, 245, 220, 1.0);
+}
+
+
+/**** LOGOUT btn ****/
+.logout-btn {
+    background-color: rgba(245, 245, 220, 1.0);
+    border: 2px solid rgba(245, 245, 220, 1.0);
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    position: relative;
+    top: 460px;
+    left: 5px;
+}
+
+.logout-btn:hover {
+    background: transparent;
+    color: rgba(245, 245, 220, 1.0);
+    transition: .5s;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button a:hover {
+    color: rgba(245, 245, 220, 1.0);
+}
+
+
+.main-content{
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard{
+    font-family: 'Clash Grotesk', sans-serif;
+    color: rgba(245, 245, 220, 1.0);
+    position: relative;
+    top: 30px;
+    font-size: 18px;
+    width: 130px;
+    height: 100%;
+}
+
+.dashboard:hover{
+    background: rgba(245, 245, 220, 1.0);
+    color: black;
+    transition: .5s;
+}
+
+
