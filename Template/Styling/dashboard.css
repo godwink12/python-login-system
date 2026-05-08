@@ -56,6 +56,17 @@ h1{
     transition: .5s;
 }
 
+.profile-card{
+    background: rgba(30, 30, 30, 1.0);
+    border-radius: 16px;
+    height: 50vh;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+}
+
 
 
 a{
@@ -89,4 +100,64 @@ button a:hover {
     transition: .5s;
 }
 
+
+.avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(245, 245, 220, 1.0);
+    color: rgb(177, 177, 140);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    left: 30px;
+    font-family: 'Clash Grotesk', sans-serif;
+}
+
+.profile-info{
+    font-family: 'Clash Grotesk', sans-serif;
+    color: rgba(245, 245, 220, 1.0);
+    position: relative;
+    left: 30px;
+}
+
+.profile-actions .change{
+    background: rgba(245, 245, 220, 1.0);
+    border: 2px solid rgba(245, 245, 220, 1.0);
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+}
+
+
+.profile-actions .change:hover{
+    background: transparent;
+    color: rgba(245, 245, 220, 1.0);
+    transition: .5s;
+}
+
+.profile-actions .delete{
+    background: transparent;
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-weight: bolder;
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+}
+
+.profile-actions .delete:hover{
+    background: rgb(255, 0, 0);
+    color: rgba(245, 245, 220, 1.0);
+    transition: .5s;
+}
 
