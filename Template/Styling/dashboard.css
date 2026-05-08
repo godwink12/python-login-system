@@ -8,29 +8,32 @@ body {
 }
 
 
-.navbar{
-  list-style-type: none;
-  margin: 10px;
-  padding: 30px;
-  width: 130px;
-  height: calc(100vh - 50px);  /* subtracts the top and bottom margin */
-  position: fixed; /* Make it stick, even on scroll */
-  overflow: auto; /* Enable scrolling if the sidenav has too much content */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
-  border-radius: 10px;
-  box-shadow: 0 5px 30px rgba(245, 245, 220, 0.5) ;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.navbar {
+    list-style-type: none;
+    margin: 10px;
+    padding: 30px;
+    width: 130px;
+    height: calc(100vh - 50px);
+    /* subtracts the top and bottom margin */
+    position: fixed;
+    /* Make it stick, even on scroll */
+    overflow: auto;
+    /* Enable scrolling if the sidenav has too much content */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(245, 245, 220, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
-h1{
-   font-size: 20px;
-   font-family: 'Clash Grotesk', sans-serif;
-   color: rgba(245, 245, 220, 1.0);
+h1 {
+    font-size: 20px;
+    font-family: 'Clash Grotesk', sans-serif;
+    color: rgba(245, 245, 220, 1.0);
 }
 
 
@@ -56,20 +59,21 @@ h1{
     transition: .5s;
 }
 
-.profile-card{
-    background: rgba(30, 30, 30, 1.0);
+.profile-card {
+    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
     border-radius: 16px;
     height: 50vh;
     width: 600px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
+    gap: 20px;
 }
 
 
 
-a{
+a {
     text-decoration: none;
     color: rgba(245, 245, 220, 1.0);
 }
@@ -79,12 +83,20 @@ button a:hover {
 }
 
 
-.main-content{
-    margin-left: 200px;  /* sidebar width + margin */
+.main-content {
+    margin-left: 200px;
+    /* sidebar width + margin */
     padding: 30px;
 }
 
-.dashboard{
+
+.main-content h1 {
+    margin: 50px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.dashboard {
     display: block;
     padding: 10px;
     border-radius: 8px;
@@ -94,14 +106,14 @@ button a:hover {
     width: 100%;
 }
 
-.dashboard:hover{
+.dashboard:hover {
     background: rgba(245, 245, 220, 1.0);
     color: black;
     transition: .5s;
 }
 
 
-.avatar{
+.avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -117,14 +129,14 @@ button a:hover {
     font-family: 'Clash Grotesk', sans-serif;
 }
 
-.profile-info{
+.profile-info {
     font-family: 'Clash Grotesk', sans-serif;
     color: rgba(245, 245, 220, 1.0);
     position: relative;
     left: 30px;
 }
 
-.profile-actions .change{
+.profile-actions .change {
     background: rgba(245, 245, 220, 1.0);
     border: 2px solid rgba(245, 245, 220, 1.0);
     border-radius: 16px;
@@ -137,13 +149,13 @@ button a:hover {
 }
 
 
-.profile-actions .change:hover{
+.profile-actions .change:hover {
     background: transparent;
     color: rgba(245, 245, 220, 1.0);
     transition: .5s;
 }
 
-.profile-actions .delete{
+.profile-actions .delete {
     background: transparent;
     border: 2px solid rgb(255, 0, 0);
     border-radius: 16px;
@@ -155,9 +167,125 @@ button a:hover {
     left: 30px;
 }
 
-.profile-actions .delete:hover{
+.profile-actions .delete:hover {
     background: rgb(255, 0, 0);
     color: rgba(245, 245, 220, 1.0);
     transition: .5s;
 }
 
+hr {
+    margin: 40px;
+}
+
+.checklist-card {
+    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 245, 220, 0.15);
+    border-radius: 16px;
+    margin-left: 230px;
+    /* sidebar width + margin */
+    padding: 30px;
+    width: 30vw;
+    height: 50vh;
+}
+
+.task-list {
+    list-style: none;
+    display: block;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-between;
+    font-family: 'Clash Grotesk', sans-serif;
+    color: rgba(245, 245, 220, 1.0);
+}
+
+
+
+
+.checklist-card h1 {
+    font-size: 40px;
+}
+
+.checklist-card button {
+    background: rgba(245, 245, 220, 1.0);
+    border: 2px solid rgba(245, 245, 220, 1.0);
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+}
+
+.add-task {
+    margin: 10px;
+}
+
+.add-task input {
+    background: transparent;
+    border: 2px solid rgba(245, 245, 220, 1.0);
+    border-radius: 16px;
+    padding: 5px 10px;
+    color: rgba(245, 245, 220, 1.0);
+}
+
+.task-list input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(245, 245, 220, 0.6);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background: rgba(245, 245, 220, 1.0);
+    border-color: rgba(245, 245, 220, 1.0);
+}
+
+
+/*** ring***/
+
+.bottom-cards {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.progress-card {
+    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 245, 220, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    width: 38vw;
+    height: 50vh;
+}
+
+.ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(beige 0%, #333 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+hollow-center {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
