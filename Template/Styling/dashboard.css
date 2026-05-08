@@ -13,15 +13,18 @@ body {
   margin: 10px;
   padding: 30px;
   width: 130px;
-  height: 100%; /* Full height */
+  height: calc(100vh - 50px);  /* subtracts the top and bottom margin */
   position: fixed; /* Make it stick, even on scroll */
   overflow: auto; /* Enable scrolling if the sidenav has too much content */
-  background-color: linear-gradient (135deg, rgba(219, 13, 147, 0.1), rgb(255, 255, 255));
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
   border-radius: 10px;
-  box-shadow: 0 5px 30px rgba(245, 245, 220, 1.0) ;
+  box-shadow: 0 5px 30px rgba(245, 245, 220, 0.5) ;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
 h1{
@@ -33,16 +36,18 @@ h1{
 
 /**** LOGOUT btn ****/
 .logout-btn {
-    background-color: rgba(245, 245, 220, 1.0);
+    background: rgba(245, 245, 220, 1.0);
     border: 2px solid rgba(245, 245, 220, 1.0);
     border-radius: 16px;
     padding: 10px 20px;
     font-weight: bolder;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    position: relative;
-    top: 460px;
-    left: 5px;
+}
+
+.logout-btn a {
+    color: black;
+    text-decoration: none;
 }
 
 .logout-btn:hover {
@@ -52,9 +57,10 @@ h1{
 }
 
 
+
 a{
     text-decoration: none;
-    color: black;
+    color: rgba(245, 245, 220, 1.0);
 }
 
 button a:hover {
@@ -63,18 +69,18 @@ button a:hover {
 
 
 .main-content{
-    justify-content: center;
-    align-items: center;
+    margin-left: 200px;  /* sidebar width + margin */
+    padding: 30px;
 }
 
 .dashboard{
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
     font-family: 'Clash Grotesk', sans-serif;
     color: rgba(245, 245, 220, 1.0);
-    position: relative;
-    top: 30px;
     font-size: 18px;
-    width: 130px;
-    height: 100%;
+    width: 100%;
 }
 
 .dashboard:hover{

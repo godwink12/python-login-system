@@ -1,10 +1,10 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
 
-body {
-    background: rgba(20, 20, 20, 1.0);
+body{
+    background: rgba(20, 20, 20, 1.0) ;
 }
 
 .container {
@@ -19,14 +19,8 @@ body {
 
 }
 
-
-
-
-
-
 h1 {
     font-family: 'Clash Grotesk', sans-serif;
-    font-weight: bold;
 }
 
 p {
@@ -38,43 +32,23 @@ form {
     font-family: 'Clash Grotesk', sans-serif;
 }
 
-/**** LOGOUT btn ****/
-.logout-btn {
-    background-color: rgba(245, 245, 220, 1.0);
-    border: 2px solid rgba(245, 245, 220, 1.0);
-    border-radius: 16px;
-    padding: 10px 20px;
-    font-weight: bolder;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    position: relative;
-    top: -10px;
-    left: 450px;
-}
-
-.logout-btn:hover {
-    background: transparent;
-    color: rgba(245, 245, 220, 1.0);
-    transition: .5s;
-}
-
 button {
     display: flex;
     position: relative;
-    top: -20px;
+    top: 35px;
     left: 45%;
-    background-color: rgba(245, 245, 220, 1.0);
+    background: transparent;
     border: 2px solid rgba(245, 245, 220, 1.0);
     border-radius: 16px;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bolder;
-    color: rgb(0, 0, 0);
+    color: rgba(245, 245, 220, 1.0);
 }
 
 button:hover {
-    background: transparent;
-    color: rgba(245, 245, 220, 1.0);
+    background-color: rgba(245, 245, 220, 1.0);
+    color: black;
     transition: .5s;
 }
 
