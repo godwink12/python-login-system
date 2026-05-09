@@ -63,7 +63,7 @@ h1 {
     background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
     box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
     border-radius: 16px;
-    height: 50vh;
+    height: 45vh;
     width: 600px;
     display: flex;
     flex-direction: row;
@@ -177,6 +177,65 @@ hr {
     margin: 40px;
 }
 
+
+/*** Summary card***/
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    margin-left: 490px;
+    /* sidebar width + margin */
+    padding: 30px;
+    width: 27vw;
+    height: 35vh;
+    position: absolute;
+    top: 228px;
+    left: 350px;
+}
+
+.summary-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-bottom: beige;
+}
+
+.summary-number {
+   font-weight: bold;
+   font-family: 'Clash Grotesk', sans-serif;
+   font-size: 32px;
+   color: beige;
+}
+
+.summary-label {
+    font-family: 'Clash Grotesk', sans-serif;;
+    font-size: 14px;
+    color: rgba(245, 245, 220, 0.5);
+}
+
+.divider{
+    color: rgba(245, 245, 220, 1.0);
+    margin: 0px;
+}
+
+h2{
+    margin: 10px;
+    font-family: 'Clash Grotesk', sans-serif;
+    color: rgba(245, 245, 220, 1.0);
+}
+
 .checklist-card {
     background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
     box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
@@ -269,9 +328,10 @@ input[type="checkbox"]:checked {
     height: 50vh;
 }
 
-.progress-card h1{
+.progress-card h1 {
     font-size: 40px;
 }
+
 .ring-container {
     position: relative;
     width: 150px;
