@@ -269,23 +269,50 @@ input[type="checkbox"]:checked {
     height: 50vh;
 }
 
+.progress-card h1{
+    font-size: 40px;
+}
+.ring-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
 .ring {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: conic-gradient(beige 0%, #333 0%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    border: 12px solid rgb(50, 197, 5);
+    border-top-color: transparent;
+    position: absolute;
+    left: 160px;
+    top: 50px;
 }
 
-hollow-center {
-    width: 100px;
-    height: 100px;
+.ring-center {
+    position: absolute;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    background: rgba(30, 30, 30, 1.0);
+    left: 245px;
+    top: 135px;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Clash Grotesk', sans-serif;
+}
+
+.percentage {
+    color: rgba(245, 245, 220, 1.0);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ring-label {
+    font-size: 16px;
+    color: rgba(245, 245, 220, 0.6);
+    text-align: center;
+    font-family: 'Clash Grotesk', sans-serif;
 }
