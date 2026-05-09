@@ -60,7 +60,7 @@ h1 {
 }
 
 .profile-card {
-    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
     box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
     border-radius: 16px;
     height: 45vh;
@@ -118,7 +118,7 @@ button a:hover {
     height: 80px;
     border-radius: 50%;
     background: rgba(245, 245, 220, 1.0);
-    color: rgb(177, 177, 140);
+    color: rgb(26, 26, 24);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,7 +183,7 @@ hr {
 .summary-card {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
     box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -237,7 +237,7 @@ h2{
 }
 
 .checklist-card {
-    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
     box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -317,7 +317,7 @@ input[type="checkbox"]:checked {
 }
 
 .progress-card {
-    background: linear-gradient(135deg, rgba(245, 245, 220, 0.12), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.247), rgb(0, 0, 0));
     box-shadow: 0 8px 32px rgba(245, 245, 220, 0.08);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

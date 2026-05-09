@@ -1,10 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
-    background: rgba(20, 20, 20, 1.0) ;
+body {
+    background: rgba(20, 20, 20, 1.0);
+    overflow: hidden;
 }
 
 .container {
@@ -52,7 +53,7 @@ button:hover {
     transition: .5s;
 }
 
-input{
+input {
     background: transparent;
     border: 2px solid rgba(245, 245, 220, 1.0);
     border-radius: 16px;
@@ -60,16 +61,31 @@ input{
     color: rgba(245, 245, 220, 1.0);
 }
 
-a{
+a {
     text-decoration: none;
     color: rgba(245, 245, 220, 1.0);
 }
 
-.sign:hover{
+.sign:hover {
     color: blue;
     text-decoration: solid;
 }
+
 button a:hover {
     color: black;
+}
+
+.wink {
+    position: absolute;
+    bottom: 400px;
+    left: 0;
+    max-width: 280px;
+}
+
+.check {
+    position: absolute;
+    bottom: 0;
+    left: 900px;
+    max-width: 280px;
 }
 
