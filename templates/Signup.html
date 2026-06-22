@@ -16,25 +16,24 @@
         <br>
         <p>Make sure to Complete with real details </p>
         <br>
-        <form>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="/register">
             <label for="username">Username:</label>
             <br>
             <input type="text" id="username" name="username">
             <br>
-            <label for="email">Email:</label>
-            <br>
-            <input type="email" id="email" name="email">
-            <br>
             <label for="password">Password:</label>
             <br>
-            <input type="password" type="hidden" id="password" name="Password">
+            <input type="password" id="password" name="Password">
 
-            <button type="submit"><a href="Login.html">SIGN UP</a></button>
+            <button type="submit"><a href="/login">SIGN UP</a></button>
         </form>
     </div>
 
-    <img src="img/undraw_all-checked_d3u6.svg" alt="checklist" class="check">
-    <img src="img/Winking_Emoji_Render-removebg-preview.png" alt="" class="wink">
+    <img src="static/img/undraw_all-checked_d3u6.svg" alt="checklist" class="check">
+    <img src="static/img/Winking_Emoji_Render-removebg-preview.png" alt="" class="wink">
 </body>
 
 </html>
