@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styling/style.css') }}">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap"
+        rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LOGIN</h1>
+        <br>
+        <p>Make sure to Complete with real details </p>
+        <br>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="/login">
+            <label for="Username">Username:</label>
+            <br>
+            <input type="text" id="Username" name="username">
+            <br>
+            <label for="Email">Email:</label>
+            <br>
+            <input type="email" id="Email" name="email">
+            <br>
+            <label for="Password">Password:</label>
+            <br>
+            <input type="password" id="Password" name="password">
+            <br>
+            <br>
+            <p>Don't have an account yet ? <a href="/signup" class="sign">Sign up</a></p>
+            <button type="submit">LOGIN</button>
+        </form>
+    </div>
+
+    <img src="static/img/undraw_all-checked_d3u6.svg" alt="checklist" class="check">
+    <img src="static/img/Winking_Emoji_Render-removebg-preview.png" alt="" class="wink">
+</body>
+
+</html>

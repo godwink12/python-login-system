@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styling/dashboard.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styling/style.css') }}">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap"
         rel="stylesheet">
     <title>Document</title>
@@ -22,7 +22,7 @@
 
     <section>
         <div class="main-content">
-            <h1>Welcome back,[username]!</h1>
+            <h1>Welcome back,{{username}}!</h1>
             <hr>
             <div class="profile-card">
 
@@ -33,7 +33,7 @@
 
                 <!-- Middle section - User info -->
                 <div class="profile-info">
-                    <h2>Username</h2>
+                    <h2>{{Username}}</h2>
                     <p>Member since 2025</p>
                 </div>
 
