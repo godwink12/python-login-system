@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request,redirect,url_for, session
 from database import create_table, save_user, find_user,user_exists
+from database import add_task, delete_task, complete_task
 from dotenv import load_dotenv
 import os
 import bcrypt
@@ -14,7 +15,7 @@ create_table()
 
 @app.route('/')
 def home():
-    return render_template('Login.html')
+    return render_template('Login.html') # Directly to home which is login page
 
 @app.route('/login', methods= ['GET', 'POST'])
 def login():
@@ -22,6 +23,8 @@ def login():
     if request.method == 'POST':
         username = request.form["username"]
         password = request.form['password' ]
+
+        print(find_user(username))
     # Check User input Exist 
         if user_exists(username):
             stored_hash = find_user(username)[1]
@@ -42,7 +45,8 @@ def register():
 
     if request.method == 'POST':
         username = request.form["username"]
-        password = request.form['password' ]
+        password = request.form["password"]
+        print(request.form)
 
         if user_exists(username):
             return render_template('Signup.html' , error='username Already existed')
@@ -72,6 +76,8 @@ def dashboard():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

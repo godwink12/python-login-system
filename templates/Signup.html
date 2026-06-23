@@ -19,16 +19,16 @@
         {% if error %}
         <p>{{ error }}</p>
         {% endif %}
-        <form method="POST" action="/register">
+        <form action="/register" method="POST" >
             <label for="username">Username:</label>
             <br>
             <input type="text" id="username" name="username">
             <br>
             <label for="password">Password:</label>
             <br>
-            <input type="password" id="password" name="Password">
+            <input type="password" name="password">
 
-            <button type="submit"><a href="/login">SIGN UP</a></button>
+            <button type="submit">SIGN UP</button>
         </form>
     </div>
 
