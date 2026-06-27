@@ -1,6 +1,5 @@
 from flask import Flask, render_template,request,redirect,url_for, session
-from database import create_table, save_user, find_user,user_exists
-from database import add_task, delete_task, complete_task
+from database import create_table, save_user, find_user,user_exists, create_tasks_table, add_task, get_tasks, delete_task, complete_task
 from dotenv import load_dotenv
 import os
 import bcrypt
@@ -11,6 +10,7 @@ app = Flask(__name__)
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 create_table()
+create_tasks_table()
 
 
 @app.route('/')
@@ -70,12 +70,33 @@ def dashboard():
     if 'username' not in session:
         return redirect(url_for('login'))
     username = session['username']
-    return render_template('dashboard.html', username= username)
+    tasks = get_tasks(username)
+    return render_template('dashboard.html', username = username, tasks = tasks)
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+@app.route('/add_task' , methods=['POST'])
+def add_task_route():
+    if 'username' in session:
+        username = session['username']
+        task = request.form['task']
+        add_task(username, task)
+        return redirect(url_for('dashboard'))
+    
+@app.route('/delete_task', methods = ['POST'])
+def delete_task_route():
+    task = request.form['task_id']
+    delete_task(task)
+    return redirect(url_for('dashboard'))
+
+@app.route('/complete_task', methods = ['POST'])
+def complete_task_route():
+    task_id = request.form['task_id']
+    complete_task(task_id)
+    return redirect(url_for('dashboard'))
 
 
 

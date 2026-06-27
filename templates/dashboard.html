@@ -83,30 +83,29 @@
                 <h1>My Checklist</h1>
 
                 <!-- Add task section -->
-                <form>
+                <form method="POST" action="/add_task">
                     <div class="add-task">
-                        <input type="text" placeholder="Add a new task...">
-                        <button>Add</button>
+                        <input type="text" name="task" placeholder="Add a new task...">
+                        <button type="submit">Add</button>
                     </div>
                 </form>
 
 
                 <!-- Task list -->
                 <ul class="task-list">
+                    {% for task in tasks %}
                     <li>
-                        <input type="checkbox">
-                        <span>Buy groceries</span>
+                        <form action="/complete_task" method="POST">
+                            <input type="hidden" name="task_id" value="{{ task[0] }}">
+                            <input type="checkbox" onchange="this.form.submit()">
+                        </form>
+                        <span>{{ task[2] }}</span>
+                        <form method="POST" action="/delete_task">
+                            <input type="hidden" name="task_id" value="{{ task[0] }}">
+                            <button type="submit">Delete</button>
+                        </form>
                     </li>
-                    <br>
-                    <li>
-                        <input type="checkbox">
-                        <span>Finish dashboard UI</span>
-                    </li>
-                    <br>
-                    <li>
-                        <input type="checkbox">
-                        <span>Learn Flask</span>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="progress-card">

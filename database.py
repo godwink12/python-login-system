@@ -64,9 +64,11 @@ def delete_task(task_id):
     cursor = connection.cursor()
     cursor.execute("DELETE FROM tasks WHERE id = ?",(task_id,))
     connection.commit()
+    connection.close()
 
 def complete_task(task_id):
     connection =sqlite3.connect('users.db')
     cursor = connection.cursor()
     cursor.execute("UPDATE tasks SET done = 1 WHERE id = ?",(task_id,))
     connection.commit()
+    connection.close()
