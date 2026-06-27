@@ -260,6 +260,11 @@ h2{
     color: rgba(245, 245, 220, 1.0);
 }
 
+.task-list li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 
 
@@ -338,16 +343,8 @@ input[type="checkbox"]:checked {
     height: 150px;
 }
 
-.ring {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 12px solid rgb(50, 197, 5);
-    border-top-color: transparent;
-    position: absolute;
-    left: 160px;
-    top: 50px;
-}
+
+
 
 .ring-center {
     position: absolute;
@@ -375,4 +372,82 @@ input[type="checkbox"]:checked {
     color: rgba(245, 245, 220, 0.6);
     text-align: center;
     font-family: 'Clash Grotesk', sans-serif;
+}
+
+/*---- screen ----*/
+@media screen and (max-width: 768px) {
+    /* 1. Turn the vertical sidebar into a top navbar */
+    .navbar {
+        width: calc(100% - 40px); /* Fill the screen width minus padding */
+        height: auto;
+        position: relative; /* Remove fixed sidebar placement */
+        margin: 10px auto;
+        padding: 15px 20px;
+        flex-direction: row; /* Lay out nav items horizontally */
+        align-items: center;
+    }
+
+    /* 2. Remove the sidebar offset from your main layout */
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .main-content h1 {
+        font-size: 32px;
+        margin: 20px 0;
+    }
+
+    /* 3. Strip absolute positions so cards stack in a natural column */
+    .profile-card,
+    .summary-card,
+    .checklist-card,
+    .progress-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 20px 0 !important;
+        width: 100% !important; /* Forces full screen width on mobile */
+        height: auto !important; /* Allows them to expand with content */
+        box-sizing: border-box;
+    }
+
+    /* 4. Fix layout orientation inside cards */
+    .profile-card {
+        flex-direction: column; /* Stack avatar above username on mobile */
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+    .avatar, 
+    .profile-info, 
+    .profile-actions .change, 
+    .profile-actions .delete {
+        left: 0 !important; /* Remove the hardcoded left offsets */
+    }
+
+    .profile-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .bottom-cards {
+        flex-direction: column; /* Stack the checklist and progress layout */
+        width: 100%;
+    }
+
+    /* 5. Center the progress ring graphic */
+    .ring {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 20px auto;
+    }
+
+    .ring-center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
 }

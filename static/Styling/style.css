@@ -89,3 +89,44 @@ button a:hover {
     max-width: 280px;
 }
 
+
+/*---- media screen -----*/
+
+@media screen and (max-width: 768px) {
+    /* 1. Free up the body so users can actually scroll if needed */
+    body {
+        overflow: auto;
+    }
+
+    /* 2. Shrink the massive margins so the form has room to breathe */
+    .container {
+        margin: 40px 20px;
+        padding: 20px;
+    }
+
+    /* 3. Make inputs easier to tap on standard phone screens */
+    input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+    }
+
+    /* 4. Center the button cleanly without hardcoded percentages */
+    button {
+        position: relative;
+        top: 20px;
+        left: 0;
+        margin: 0 auto; /* Purely centers the flex element */
+        justify-content: center;
+    }
+
+    /* 5. Handle the illustrations so they don't break the layout */
+    .wink, .check {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin: 20px auto !important;
+        display: block;
+        max-width: 180px; /* Scale down the images for small screens */
+    }
+}

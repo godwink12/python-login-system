@@ -42,7 +42,10 @@
                     <button class="change">Change Password</button>
                     <br>
                     <br>
-                    <button class="delete">Delete Account</button>
+                    <form  method="POST" action="/delete_account">
+                        <button class="delete" type="submit">Delete Account</button>
+                    </form>
+                    
                 </div>
 
             </div>
@@ -54,19 +57,19 @@
 
                     <div class="summary-item">
                         <span class="summary-icon">📋</span>
-                        <span class="summary-number">5</span>
+                        <span class="summary-number"> {{ total_tasks }}</span>
                         <span class="summary-label">Total Tasks</span>
                     </div>
                     <hr class="divider">
                     <div class="summary-item">
-                        <span class="summary-icon">✔ </span>
-                        <span class="summary-number">3</span>
+                        <span class="summary-icon" style="color: rgb(26, 171, 0);">✔ </span>
+                        <span class="summary-number">{{ completed }}</span>
                         <span class="summary-label">Completed</span>
                     </div>
                     <hr class="divider">
                     <div class="summary-item">
                         <span class="summary-icon">⏳</span>
-                        <span class="summary-number">2</span>
+                        <span class="summary-number">{{ total_tasks - completed }}</span>
                         <span class="summary-label">Remaining</span>
                     </div>
 
@@ -97,7 +100,7 @@
                     <li>
                         <form action="/complete_task" method="POST">
                             <input type="hidden" name="task_id" value="{{ task[0] }}">
-                            <input type="checkbox" onchange="this.form.submit()">
+                            <input type="checkbox" onchange="this.form.submit()" {% if task[3] == 1 %}checked{% endif %}>
                         </form>
                         <span>{{ task[2] }}</span>
                         <form method="POST" action="/delete_task">
@@ -112,12 +115,12 @@
                 <h1>Task Progress</h1>
 
                 <div class="ring-container">
-                    <div class="ring"></div>
+                    <div class="ring" style="background: conic-gradient(green {{ percentage }}%, #333 0%)"></div>
                     <div class="ring-center">
-                        <span class="percentage">0%</span>
+                        <span class="percentage">{{ percentage|int }}%</span>
                     </div>
 
-                    <p class="ring-label">0 0f 3 completed</p>
+                    <p class="ring-label">{{ completed }} of {{ total_tasks }}completed</p>
                 </div>
             </div>
         </div>

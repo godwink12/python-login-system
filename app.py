@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,redirect,url_for, session
-from database import create_table, save_user, find_user,user_exists, create_tasks_table, add_task, get_tasks, delete_task, complete_task
+from database import create_table, save_user, find_user,user_exists, create_tasks_table, add_task, get_tasks, delete_task, complete_task , delete_user_tasks, delete_user
 from dotenv import load_dotenv
 import os
 import bcrypt
@@ -71,7 +71,15 @@ def dashboard():
         return redirect(url_for('login'))
     username = session['username']
     tasks = get_tasks(username)
-    return render_template('dashboard.html', username = username, tasks = tasks)
+    total_tasks = len(tasks)
+    completed = len([task for task in tasks if task[3] == 1])   
+    if total_tasks > 0:
+        percentage = (completed / total_tasks) * 100
+    else:
+        percentage = 0
+    return render_template('dashboard.html', username = username, tasks = tasks, total_tasks=total_tasks,
+    completed=completed,
+    percentage=percentage)
 
 @app.route('/logout')
 def logout():
@@ -98,7 +106,14 @@ def complete_task_route():
     complete_task(task_id)
     return redirect(url_for('dashboard'))
 
-
+@app.route('/delete_account', methods = ['POST'])
+def delete_account_route():
+    if 'username' in session:
+        username = session['username']
+        delete_user_tasks(username)
+        delete_user(username)
+        session.clear()
+        return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)
