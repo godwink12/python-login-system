@@ -114,6 +114,13 @@ def delete_account_route():
         delete_user(username)
         session.clear()
         return redirect(url_for('login'))
+    
+@app.route('/profile')
+def profile():
+    
+    user_initial = current_user.username[0].upper()
+    
+    return render_template('profile.html', initial=user_initial)
 
 if __name__ == '__main__':
     app.run(debug=True)
