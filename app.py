@@ -8,7 +8,7 @@ import string
 
 app = Flask(__name__)
 load_dotenv()
-app.secret_key = os.getenv('SECRET_KEY')
+app.secret_key = os.getenv('SECRET_KEY') or 'super-secret-fallback-key'
 create_table()
 create_tasks_table()
 
@@ -117,11 +117,12 @@ def delete_account_route():
     
 @app.route('/profile')
 def profile():
-    
+
     user_initial = current_user.username[0].upper()
     
     return render_template('profile.html', initial=user_initial)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
