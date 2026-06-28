@@ -16,10 +16,10 @@
         <br>
         <p>Make sure to Complete with real details </p>
         <br>
-        {% if error %}
-        <p>{{ error }}</p>
-        {% endif %}
-        <form action="/register" method="POST" >
+        <form action="/register" method="POST">
+            {% if errors.username %}
+            <p style="color: red;">{{ errors.username }}</p>
+            {% endif %}
             <label for="username">Username:</label>
             <br>
             <input type="text" id="username" name="username">
@@ -27,6 +27,9 @@
             <label for="password">Password:</label>
             <br>
             <input type="password" name="password">
+            {% if errors.password %}
+                 <p style="color: red;">{{ errors.password }}</p>
+            {% endif %}
 
             <button type="submit">SIGN UP</button>
         </form>

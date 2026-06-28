@@ -48,22 +48,31 @@ def register():
         password = request.form["password"]
         print(request.form)
 
+        errors = {
+            "username": None,
+            "password": None
+        }
         if user_exists(username):
-            return render_template('Signup.html' , error='username Already existed')
+            errors['username'] = 'username Already existed'
+            return render_template('Signup.html' , errors = errors)
         elif len(password) < 6:
-            return render_template('Signup.html', error='Too Weak')
+            errors['password'] = "Password too weak"
+            return render_template('Signup.html', errors = errors)
         elif not any(char.isupper() for char in password):
-            return render_template('Signup.html', error='Needs a Capital Letter')
+            errors['password'] = 'Needs a Capital Letter'
+            return render_template('Signup.html', errors = errors)
         elif not any(char.isdigit() for char in password):
-            return render_template('Signup.html', error='Needs a Number')
+            errors['password'] = 'Needs a Number'
+            return render_template('Signup.html', errors = errors)
         elif not any(char in string.punctuation for char in password):
-            return render_template('Signup.html', error='Needs a symbol')
+            errors['password'] = 'Needs a symbol'
+            return render_template('Signup.html', errors = errors)
         else:
             password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
             save_user(username,password_hash)
             return redirect(url_for('login'))
     
-    return render_template('Signup.html')
+    return render_template('Signup.html', errors={})
 
 @app.route('/dashboard')
 def dashboard():
