@@ -94,10 +94,7 @@
                 <ul class="task-list">
                     {% for task in tasks %}
                     <li>
-                        <form action="/complete_task" method="POST">
-                            <input type="hidden" name="task_id" value="{{ task[0] }}">
-                            <input type="checkbox" {% if task[3]==1 %}checked{% endif %}>
-                        </form>
+                        <input type="checkbox" data-task-id="{{ task[0] }}" {% if task[3]==1 %}checked{% endif %}>
                         <span>{{ task[2] }}</span>
                         <form method="POST" action="/delete_task">
                             <input type="hidden" name="task_id" value="{{ task[0] }}">
@@ -127,8 +124,9 @@
         checkboxes.forEach(function (checkbox) {
             checkbox.addEventListener('change', function (event) {
                 event.preventDefault()
-                const form = checkbox.closest('form')
-                const formData = new FormData(form)
+                const taskId = checkbox.dataset.taskId
+                const formData = new FormData()
+                formData.append('task_id', taskId)
                 fetch('/complete_task', {
                     method: 'POST',
                     body: formData

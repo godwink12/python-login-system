@@ -69,7 +69,7 @@ def delete_task(task_id):
 def complete_task(task_id):
     connection =sqlite3.connect('users.db')
     cursor = connection.cursor()
-    cursor.execute("UPDATE tasks SET done = 1 WHERE id = ?",(task_id,))
+    cursor.execute("UPDATE tasks SET done = CASE WHEN done = 1 THEN 0 ELSE 1 END WHERE id = ?",(task_id,))
     connection.commit()
     connection.close()
 
