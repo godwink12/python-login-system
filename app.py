@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect,url_for, session
+from flask import Flask, render_template,request,redirect,url_for, session,jsonify
 from database import create_table, save_user, find_user,user_exists, create_tasks_table, add_task, get_tasks, delete_task, complete_task , delete_user_tasks, delete_user
 from dotenv import load_dotenv
 import os
@@ -112,8 +112,18 @@ def delete_task_route():
 @app.route('/complete_task', methods = ['POST'])
 def complete_task_route():
     task_id = request.form['task_id']
+    username = session['username']
     complete_task(task_id)
-    return redirect(url_for('dashboard'))
+    tasks = get_tasks(username)
+    total = len(tasks)
+    completed = len([task for task in tasks if task[3] == 1])
+    if total > 0:
+        percentage = (completed / total) *100
+    else:
+        percentage = 0
+    return jsonify({'percentage': percentage, 
+                    'completed': completed, 
+                    'total': total,})
 
 @app.route('/delete_account', methods = ['POST'])
 def delete_account_route():
@@ -124,12 +134,8 @@ def delete_account_route():
         session.clear()
         return redirect(url_for('login'))
     
-@app.route('/profile')
-def profile():
 
-    user_initial = current_user.username[0].upper()
     
-    return render_template('profile.html', initial=user_initial)
 
 if __name__ == '__main__':
     app.run(debug=True)

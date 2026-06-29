@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='Styling/dashboard.css') }}">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap"
         rel="stylesheet">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -38,10 +38,10 @@
 
                 <!-- Bottom section - Actions -->
                 <div class="profile-actions">
-                    <form  method="POST" action="/delete_account">
+                    <form method="POST" action="/delete_account">
                         <button class="delete" type="submit">Delete Account</button>
                     </form>
-                    
+
                 </div>
 
             </div>
@@ -53,19 +53,19 @@
 
                     <div class="summary-item">
                         <span class="summary-icon">📋</span>
-                        <span class="summary-number"> {{ total_tasks }}</span>
+                        <span class="summary-number" id="total_tasks"> {{ total_tasks }}</span>
                         <span class="summary-label">Total Tasks</span>
                     </div>
                     <hr class="divider">
                     <div class="summary-item">
                         <span class="summary-icon" style="color: rgb(26, 171, 0);">✔ </span>
-                        <span class="summary-number">{{ completed }}</span>
+                        <span class="summary-number" id="completed-tasks">{{ completed }}</span>
                         <span class="summary-label">Completed</span>
                     </div>
                     <hr class="divider">
                     <div class="summary-item">
                         <span class="summary-icon">⏳</span>
-                        <span class="summary-number">{{ total_tasks - completed }}</span>
+                        <span class="summary-number" id="remaining-tasks">{{ total_tasks - completed }}</span>
                         <span class="summary-label">Remaining</span>
                     </div>
 
@@ -96,7 +96,7 @@
                     <li>
                         <form action="/complete_task" method="POST">
                             <input type="hidden" name="task_id" value="{{ task[0] }}">
-                            <input type="checkbox" onchange="this.form.submit()" {% if task[3] == 1 %}checked{% endif %}>
+                            <input type="checkbox" {% if task[3]==1 %}checked{% endif %}>
                         </form>
                         <span>{{ task[2] }}</span>
                         <form method="POST" action="/delete_task">
@@ -116,11 +116,37 @@
                         <span class="percentage">{{ percentage|int }}%</span>
                     </div>
 
-                    <p class="ring-label">{{ completed }} of {{ total_tasks }}completed</p>
+                    <p class="ring-label">{{ completed }} of {{ total_tasks }} completed</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function (event) {
+                event.preventDefault()
+                const form = checkbox.closest('form')
+                const formData = new FormData(form)
+                fetch('/complete_task', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.querySelector('.ring').style.background = `conic-gradient(green ${data.percentage}%, #333 0%)`
+                        document.querySelector('.percentage').textContent = Math.round(data.percentage) + '%'
+                        document.querySelector('.ring-label').textContent = data.completed + ' of ' + data.total + ' completed'
+                        // use data.percentage, data.completed, data.total
+                        document.getElementById('completed-tasks').textContent = data.completed
+                        document.getElementById('remaining-tasks').textContent = data.total - data.completed
+                    })
+            })
+        })
+
+
+    </script>
 </body>
 
 </html>
